@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,7 +9,7 @@ public class ExampleJava8 {
 
     private int lengthOfLongestString(List<String> fruits){
 
-        return fruits.stream().map(String::length).min(Comparator.naturalOrder()).get();
+        return fruits.stream().map(String::length).max(Comparator.naturalOrder()).get();
     }
 
     private void sortSalaryOfEmp(List<Employee> employees){
@@ -21,7 +22,7 @@ public class ExampleJava8 {
     }
 
     private void sumOfArrayList(List<Integer> integers){
-        integers.stream().reduce((a,b) -> a + b).get();
+        integers.stream().reduce(Integer::sum).get();
     }
 
     private void diffBetweenMapAndFlatMap(List<Employee> employees){

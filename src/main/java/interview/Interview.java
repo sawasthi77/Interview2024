@@ -1,40 +1,83 @@
 package interview;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
 import java.util.stream.Collectors;
 
 public class Interview {
 
-    // fibonnacci, all even terms needs to be added and sum should not be greater than 4 million
     public static void main(String[] args) {
+        List<Person> persons =  new ArrayList<>();
 
-        getSeries(1000);
-        //list.stream().filter(x -> x%2 ==0).reduce(0, (a,b) -> a+b );
+        Trainer trainer = persons.stream()
+                .collect(Collectors.groupingBy(Person::getTrainer, Collectors.counting())).entrySet().stream()
+                .filter( entry -> entry.getValue() > 1L).map(Map.Entry::getKey).findFirst().get();
+        System.out.println(trainer.getName());
 
     }
+}
 
-    private static void getSeries(Integer n){ // 0,1,1,2,3 // List<Integer>
-
-        List<Integer> newInteger = new ArrayList<>();
-        int a = 0;
-        int  b =1;
-        int sum = 0;
-
-        if( n == 0){
-            System.out.println(a);
-        }
-        if (n ==1){
-            System.out.println(a + "," + b);
-        }
-        for(int i = 2 ; i<= n ; i++){
-            sum = a + b;
-            a = b;
-            b = sum;
-        }
+class Trainer{
+    public Trainer(long id, String name) {
+        this.id = id;
+        this.name = name;
     }
+
+    private long id;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+}
+
+class Person{
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private long id;
+
+    public Person(long id, String name, Trainer trainer) {
+        this.id = id;
+        this.name = name;
+        this.trainer = trainer;
+    }
+
+    private String name;
+    private Trainer trainer;
 }
 
 

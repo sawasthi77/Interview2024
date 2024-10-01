@@ -2,7 +2,8 @@ package com.practice;
 
 public class ArmstrongNumber {
     public static void main(String[] args) {
-        isArmstrongNumber(371);
+
+        System.out.println(isArmstrongNumber(321));
     }
 
     private static boolean isArmstrongNumber(int num){
@@ -18,7 +19,4 @@ public class ArmstrongNumber {
                 .map(digit -> (int)Math.pow(digit, len)).sum();
         return sum == num;
     }
-
-    //int sum = String.valueOf(num).chars().map(ch -> Character.digit(ch, 10))
-    //.map(digit -> (int)Math.pow(digit, len)).sum();
-}
+    }

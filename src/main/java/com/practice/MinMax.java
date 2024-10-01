@@ -18,6 +18,6 @@ public class MinMax {
         int secMin = Arrays.stream(a).boxed().sorted().skip(1).findAny().get();
 
         Arrays.stream(a).boxed().max(Comparator.reverseOrder()).get();
-        Arrays.stream(a).boxed().reduce(Integer :: max).get();
+        Arrays.stream(a).boxed().reduce(Integer::max).get();
     }
 }
