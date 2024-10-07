@@ -12,6 +12,11 @@ public class SingletonExample {
         s = "Hello I am part of singleton class";
     }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException{
+        throw new CloneNotSupportedException("Cloning of this Object is not allowed");
+    }
+
     public static synchronized SingletonExample getInstance() {
         if (single_Instance == null) {
             single_Instance = new SingletonExample();

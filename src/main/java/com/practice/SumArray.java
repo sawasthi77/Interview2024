@@ -12,7 +12,7 @@ public class SumArray {
         int sumValue = Arrays.stream(a).boxed().mapToInt(x -> x).sum();
         int anotherSumValue = Arrays.stream(a).sum();
         System.out.println(anotherSumValue);
-        int sum = Arrays.stream(a).boxed().reduce(0, Integer::sum);
+        int sum = Arrays.stream(a).boxed().reduce(Integer::sum).get();
         int anotherSum = Arrays.stream(a).reduce(0, Integer::sum);
         System.out.println(anotherSum);
 
